@@ -14,7 +14,7 @@ dependencies: [
 
 ## Usage
 
-## The Scheduler
+### The Scheduler
 
 The workhorse of the algorithm is the `Scheduler` protocol. It takes a card and a review and returns a new card and review log object.
 
@@ -33,7 +33,7 @@ struct CustomScheduler: Scheduler {
 }
 ```
 
-## The Algorithm
+### The Algorithm
 
 The library implements `v5` of the FSRS algorithm out of the box. It can also support custom implementations.
 
@@ -56,7 +56,7 @@ scheduler.schedule(
 )
 ```
 
-## Scheduling a Review
+### Scheduling a Review
 
 To schedule a review for a given card:
 
