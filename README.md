@@ -27,7 +27,7 @@ Here is how you can create your own scheduler:
 import SwiftFSRS
 
 struct CustomScheduler: Scheduler {
-  func schedule(card: Card, algorithm: Algorithm, reviewRating: ReviewRating, reviewTime: Date) -> (Card, ReviewLog) {
+  func schedule(card: Card, algorithm: Algorithm, reviewRating: ReviewRating, reviewTime: Date) -> CardReview {
     // Implement your custom algorithm here
   }
 }
