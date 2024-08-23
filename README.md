@@ -15,7 +15,7 @@ Add the following to your `Package.swift` file:
 
 ```swift
 dependencies: [
-    .package(url: "")
+    .package(url: "https://github.com/4rays/swift-fsrs")
 ]
 ```
 
