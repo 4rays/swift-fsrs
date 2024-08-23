@@ -2,13 +2,6 @@
 
 An idiomatic and configurable Swift implementation of the [FSRS spaced repetition algorithm](https://github.com/open-spaced-repetition/fsrs4anki/wiki/The-Algorithm).
 
-The workhorse of the algorithm is the `Scheduler` protocol. It takes a card and a review and returns a new card and review log object.
-
-Out of the box, the library ships with a short-term and a long-term scheduler.
-Use the short-term scheduler when you want to support multiple reviews of the same card in a single day. Use the long-term scheduler otherwise.
-
-The library uses `v5` of the FSRS algorithm but supports is designed to support custom algorithm implementations, and by defaults ships with the `v5` implementation.
-
 ## Installation
 
 Add the following to your `Package.swift` file:
@@ -21,28 +14,14 @@ dependencies: [
 
 ## Usage
 
-To review a card:
+## The Scheduler
 
-```swift
-import SwiftFSRS
+The workhorse of the algorithm is the `Scheduler` protocol. It takes a card and a review and returns a new card and review log object.
 
-let scheduler = LongTermScheduler()
-let card = Card()
+Out of the box, the library ships with a short-term and a long-term scheduler.
+Use the short-term scheduler when you want to support multiple reviews of the same card in a single day. Use the long-term scheduler otherwise.
 
-let review = scheduler.schedule(
-  card: card,
-  algorithm: .v5,
-  reviewRating: .good, // or .easy, .hard, .again
-  reviewTime: Date()
-)
-
-print(review.card)
-print(review.log)
-```
-
-## Customization
-
-To customize the algorithm, you can implement the `Scheduler` protocol:
+Here is how you can create your own scheduler:
 
 ```swift
 import SwiftFSRS
@@ -54,7 +33,9 @@ struct CustomScheduler: Scheduler {
 }
 ```
 
-You can also implement your own `FSRSAlgorithm`:
+## The Algorithm
+
+The library implements `v5` of the FSRS algorithm out of the box. It can also support custom implementations.
 
 ```swift
 import SwiftFSRS
@@ -73,6 +54,39 @@ scheduler.schedule(
   reviewRating: .good,
   reviewTime: Date()
 )
+```
+
+## Scheduling a Review
+
+To schedule a review for a given card:
+
+```swift
+import SwiftFSRS
+
+let scheduler = LongTermScheduler()
+let card = Card()
+
+let review = scheduler.schedule(
+  card: card,
+  algorithm: .v5,
+  reviewRating: .good, // or .easy, .hard, .again
+  reviewTime: Date()
+)
+
+print(review.card)
+print(review.log)
+```
+
+Cards don't have any content properties and are meant to be properties of your own type.
+
+```swift
+import SwiftFSRS
+
+struct MyFlashCard {
+  let question: String
+  let answer: String
+  let fsrsCard: Card
+}
 ```
 
 ## License
