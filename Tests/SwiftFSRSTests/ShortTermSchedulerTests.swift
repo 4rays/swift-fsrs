@@ -106,7 +106,7 @@ final class ShortTermSchedulerTests: XCTestCase {
         reviewTime: previousCard.due
       )
 
-      reviewCards.append(review.card)
+      reviewCards.append(review.postReviewCard)
     }
 
     return reviewCards

@@ -162,6 +162,6 @@ public struct LongTermScheduler: Scheduler {
       }
     }
 
-    return CardReview(card: newCard, oldCard: card, rating: reviewRating)
+    return CardReview(postReviewCard: newCard, preReviewCard: card, rating: reviewRating)
   }
 }

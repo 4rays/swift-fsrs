@@ -166,6 +166,6 @@ public struct ShortTermScheduler: Scheduler {
       }
     }
 
-    return CardReview(card: newCard, oldCard: card, rating: reviewRating)
+    return CardReview(postReviewCard: newCard, preReviewCard: card, rating: reviewRating)
   }
 }
