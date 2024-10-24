@@ -1,6 +1,9 @@
 import Foundation
 
 public struct Card: Hashable, Codable, Sendable {
+  /// The current state of the card (New, Learning, Review, Relearning)
+  public var status: Status
+
   /// Date when the card is next due for review
   public var due: Date
 
@@ -21,9 +24,6 @@ public struct Card: Hashable, Codable, Sendable {
 
   /// Times the card was forgotten or remembered incorrectly
   public var lapses: Int
-
-  /// The current state of the card (New, Learning, Review, Relearning)
-  public var status: Status
 
   /// The most recent review date, if applicable
   public var lastReview: Date?

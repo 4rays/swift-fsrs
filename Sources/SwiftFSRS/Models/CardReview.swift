@@ -1,10 +1,18 @@
 import Foundation
 
 public struct CardReview: Codable {
+  /// The post-review card.
   public var card: Card
+
+  /// The review log.
   public var reviewLog: ReviewLog
 
-  // Unlike other implementations, we only persist pre-review data in the review log
+  /// Initialize a new card review.
+  ///
+  /// - Parameters:
+  ///   - card: The post-review card.
+  ///   - oldCard: The pre-review card.
+  ///   - rating: The rating given to the card.
   public init(card: Card, oldCard: Card, rating: Rating) {
     self.card = card
 
