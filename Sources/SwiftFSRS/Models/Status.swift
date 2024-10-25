@@ -1,4 +1,4 @@
-public enum Status: String, Codable, Equatable, Sendable {
+public enum Status: String, Codable, Hashable, Sendable {
   case new
   case learning
   case review

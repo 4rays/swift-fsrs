@@ -1,6 +1,6 @@
 import Foundation
 
-public struct FSRSAlgorithm: Codable, Sendable {
+public struct FSRSAlgorithm: Codable, Hashable, Sendable {
   public enum Version: String, Codable, Hashable, Sendable {
     case v5
 

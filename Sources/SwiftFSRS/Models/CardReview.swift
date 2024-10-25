@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CardReview: Codable {
+public struct CardReview: Codable, Hashable, Sendable {
   /// The post-review card.
   public var postReviewCard: Card
 
